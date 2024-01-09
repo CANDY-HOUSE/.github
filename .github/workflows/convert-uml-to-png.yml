@@ -36,7 +36,7 @@ jobs:
       run: |
         export GRAPHVIZ_DOT=$(which dot)
         mkdir -p profile/uml/uml_output
-        for uml_file in $(find . -name '*.puml' -o -name '*.uml'-o -name '*.plantuml'); do
+        for uml_file in $(find . -name '*.puml' -o -name '*.uml' -o -name '*.plantuml'); do
           echo "Processing $uml_file"
           java -jar plantuml.1.2023.7.jar -o $(pwd)/profile/uml/uml_output $uml_file
         done

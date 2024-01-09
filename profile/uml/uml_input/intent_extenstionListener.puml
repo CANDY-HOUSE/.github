@@ -18,4 +18,5 @@ CHSesameIntent->CHExtensionListener: post()
 note over CHExtensionListener: 通知所有Observer
 CHExtensionListener->AppDelegate: receiveExtensionNotification(...)
 
+
 @enduml
