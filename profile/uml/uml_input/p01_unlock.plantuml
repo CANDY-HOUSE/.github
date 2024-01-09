@@ -1,0 +1,28 @@
+@startuml
+title 透過 AWS IoT + WiFiModule2 傳送指令給 Sesame2
+participant 手機app
+participant Sesame2
+participant WiFiModule2
+
+box "AWS IoT" #White/ffcc7c
+participant "WiFiModule2 Shadow"
+participant "Sesame2 Shadow"
+end box
+
+note over WiFiModule2, Sesame2: \
+已建立BLE連線,並已完成BLE_login且已建立AESCCM加密通道
+
+手機app -> "WiFiModule2 Shadow": (command, key_idx, 手機app_publicKey, timestamp, SIG)
+"WiFiModule2 Shadow" -> WiFiModule2: (command, key_idx, 手機app_publicKey, timestamp, SIG)
+WiFiModule2 -> Sesame2: (command, key_idx, 手機app_publicKey, timestamp, SIG)
+
+note over Sesame2, 手機app: \
+SIG=AESCMAC(user_key, command+  key_idx+手機app_publicKey+timestamp  +ECDH_sharedSecret)\n\
+ECDH_sharedSecret = ECDH(Sesame2_keypairs, 手機app_keypairs)
+
+Sesame2 -> Sesame2: 開鎖
+Sesame2 -> WiFiModule2: Sesame狀態\n(是否鎖上?、電池、角度)
+WiFiModule2 -> "Sesame2 Shadow": 同步 Sesame狀態\n(是否鎖上?、電池、角度)
+"Sesame2 Shadow" -> 手機app: 同步 Sesame狀態\n(是否鎖上?、電池、角度)
+
+@enduml

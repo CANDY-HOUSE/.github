@@ -5,6 +5,8 @@ on: # 触发条件
   push:
     paths:
       - '**/*.uml'
+      - '**/*.puml'
+
 
 jobs:
   convert:
@@ -18,19 +20,24 @@ jobs:
         java-version: '11'
         distribution: 'temurin' # 选择 Java 发行版
 
-    - name: Install Graphviz
-      run: sudo apt-get install -y graphviz
+    - name: Set JAVA_TOOL_OPTIONS
+      run: echo "JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8" >> $GITHUB_ENV
+
+    - name: Install Graphviz and Chinese Fonts
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y graphviz fonts-wqy-zenhei
 
     - name: Download PlantUML jar
-      run: wget https://nchc.dl.sourceforge.net/project/plantuml/plantuml.jar
+      run: wget https://nchc.dl.sourceforge.net/project/plantuml/1.2023.7/plantuml.1.2023.7.jar
 
     - name: Convert UML files to PNG
       run: |
         export GRAPHVIZ_DOT=$(which dot)
         mkdir -p profile/uml/uml_output
-        for uml_file in $(find . -name '*.uml'); do
+        for uml_file in $(find . -name '*.puml' -o -name '*.uml'); do
           echo "Processing $uml_file"
-          java -jar plantuml.jar -o $(pwd)/profile/uml/uml_output $uml_file
+          java -jar plantuml.1.2023.7.jar -o $(pwd)/profile/uml/uml_output $uml_file
         done
 
     - name: Upload PNG files

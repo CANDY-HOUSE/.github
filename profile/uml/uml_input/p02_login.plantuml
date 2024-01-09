@@ -1,0 +1,29 @@
+@startuml
+
+title Sesame2 BLE login
+
+/'
+participant Server
+'/
+participant "藍芽中心設備(手機app 或 WiFiModule2)"
+participant Sesame2
+
+group Successful login
+
+note over "藍芽中心設備(手機app 或 WiFiModule2)": 有 sesame_public_key,\n持 藍芽中心設備的key_pair
+
+Sesame2 -> "藍芽中心設備(手機app 或 WiFiModule2)": ADV(registered status)
+"藍芽中心設備(手機app 或 WiFiModule2)" -> Sesame2: BLE connect, connected, discover & enable notification
+Sesame2 -> "藍芽中心設備(手機app 或 WiFiModule2)":publish(sesame_token), see I014-initial.md
+"藍芽中心設備(手機app 或 WiFiModule2)" -> Sesame2: (plaintext) key_idx, 藍芽中心設備_public_key, 藍芽中心設備_session_token, session_auth
+
+note over Sesame2, "藍芽中心設備(手機app 或 WiFiModule2)": \
+session_token = 藍芽中心設備_session_token + sesame_session_token\n\
+session_auth或稱SIG = AES-CMAC(user_key, key_idx + 藍芽中心設備_public_key + session_token)\n\
+session_key = AES-CMAC(ECDH_shared_secret, session_token)
+
+note over Sesame2: Sesame2 will directly disconnect on any error
+Sesame2 --> "藍芽中心設備(手機app 或 WiFiModule2)": (encrypted) login_info, see I002-login.md rsp_login_s
+end
+
+@enduml

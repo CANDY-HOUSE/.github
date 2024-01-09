@@ -1,0 +1,24 @@
+@startuml
+
+title History機制
+
+note over Sesame2: flash記憶體\n存在歷史數據
+note over "藍芽中心設備(手機app 或 WiFiModule2)", Server: if(保持著連線)
+group 原子化操作\n避免高頻拿histroy時,或被多支手機連線時\nnRF52 Flash Data Storage失控
+"藍芽中心設備(手機app 或 WiFiModule2)" -> Sesame2: read_history_command(參數read_and_delete=1)
+Sesame2 --> "藍芽中心設備(手機app 或 WiFiModule2)": response(最新的一筆history)
+Sesame2 -> Sesame2:自己馬上要求記憶體刪除 剛給出去的歷史
+end
+"藍芽中心設備(手機app 或 WiFiModule2)"->"藍芽中心設備(手機app 或 WiFiModule2)" : UI馬上顯示該筆歷史\n增加用戶體驗
+... 重複動作 繼續要history 直到要完為止 ...
+
+"藍芽中心設備(手機app 或 WiFiModule2)" -> Server: 整理並批次上傳 history
+
+... if ~~藍芽中心設備與Server斷了聯繫~~ ...
+
+note over Sesame2: flash記憶體\n存在歷史數據
+"藍芽中心設備(手機app 或 WiFiModule2)" -> Sesame2: read_history_command(參數read_and_delete=0)
+Sesame2 --> "藍芽中心設備(手機app 或 WiFiModule2)": response(最新的一筆history)
+"藍芽中心設備(手機app 或 WiFiModule2)"->"藍芽中心設備(手機app 或 WiFiModule2)" : 純粹UI顯示\n增加用戶體驗
+
+@enduml
