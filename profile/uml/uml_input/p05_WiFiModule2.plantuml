@@ -1,0 +1,33 @@
+@startuml
+title 設定WiFiModule2
+participant 手機app
+participant WiFiModule2
+participant Server
+participant AWS_IoT
+
+note over 手機app, WiFiModule2: \
+已建立BLE連線\n並已完成BLE_login\n且已建立AESCCM加密通道
+
+WiFiModule2 -> 手機app: 返回掃到的2.4GHz的WiFi清單
+手機app -> WiFiModule2: 選擇WiFi的SSID 並給 該密碼
+手機app -> AWS_IoT: 訂閱這個WiFiModule2的Shadow
+WiFiModule2 -> Server: https_request
+Server --> WiFiModule2: server_token
+
+note over WiFiModule2, Server: \
+SIG=ECC( WiFiModule2_private_key , server_token )\nServer 用 WiFiModule2_public_key 校驗請求的SIG
+
+WiFiModule2 -> Server: https_request(IR, SIG, server_token)
+Server -> Server: 校驗請求
+Server -> AWS_IoT: 申請證書
+AWS_IoT -> Server: 返回證書
+Server -> AWS_IoT: 附加 thing & Policy
+Server -> Server: 保存證書信息
+Server --> WiFiModule2: 返回證書
+WiFiModule2 -> AWS_IoT: 持有該證書去連結 AWS_IoT 網絡
+AWS_IoT --> WiFiModule2: MQTT Connected
+WiFiModule2 -> AWS_IoT: 訂閱自己的Shadow
+WiFiModule2 -> AWS_IoT: 回報MQTT Connected狀態\n(並實作LWT, Last Will and Testament)
+AWS_IoT --> 手機app: 收到 WiFiModule2網絡設定 成功
+
+@enduml

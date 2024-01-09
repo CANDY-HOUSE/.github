@@ -1,0 +1,22 @@
+@startuml Mech setting
+
+participant User
+participant 手機app
+participant Sesame2
+
+group 獲得狀態信息
+
+    手機app -> Sesame2: 藍芽指令(Read mech_status)
+    Sesame2 --> 手機app: Response(Read mech_status)
+    手機app -> User: 顯示狀態
+end
+
+
+group update mech_setting
+    User -> 手機app: 用戶操作
+    手機app -> Sesame2: 藍芽指令(Update mech_setting)
+    Sesame2 --> 手機app: Response(Update mech_setting)
+
+end
+
+@enduml

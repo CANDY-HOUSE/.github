@@ -1,0 +1,69 @@
+@startuml Register
+
+participant Server
+participant Sesame2
+
+group Manufacture
+    Sesame2 -> Server: Identity Root (IR) & Encryption Root (ER)
+    
+    note over Sesame2, Server
+        deduced shared information:
+        * sesame2_key_pair (secp-256r1)
+        ** private_key_part1 = AES-CMAC(secret="Sesame2_key_pair", message=ER) 剛好 16 bytes
+        ** private_key_part2 = AES-CMAC(secret=private_key_part1, message=ER)  剛好 16 bytes
+        ** private_key = private_key_part1 + private_key_part2 (bytes concat, 相加總共 32 bytes)
+        ** public_key=<用 ECC演算法 從 32-byte private_key 算出 64-byte public_key>
+        * sesame2_symm_key (ECC-ECDH):
+        ** first 16 bytes of Sesame2 & Server ECDH shared secret
+    end note
+    
+end
+
+|||
+
+group Registration
+    Sesame2 -> 手機app **: ADV(IR)
+    手機app -> Sesame2: BLE connect, connected, discover & enable notification
+    Sesame2 -> 手機app:publish(sesame_token), see I014-initial.md
+    手機app -> Server:  HTTP_REQ(IR, sesame_token, 手機app_public_key)
+    
+    note over Server, Sesame2
+        **session_token** = server_token + sesame_token
+        **SIG1** = AES-CMAC(sesame2_symm_key, 手機app_public_key + session_token)
+    end note
+    
+    Server --> 手機app: HTTP_RESP(sesame_public_key, server_token, SIG1)
+    手機app -> Sesame2: Cmd(parsing_type=plaintext,Register,params=SIG1, 手機app_public_key, server_token)
+    
+    |||
+    
+    note over 手機app, Sesame2
+        **ecdh_secret** = ECDH(手機app_keypair, sesame2_key_pair) first 16 bytes
+        **reg_key** = AES-CMAC(ecdh_secret, session_token)
+        **owner_key** = AES-CMAC(reg_key, "owner_key")
+        **session_key** = AES-CMAC(reg_key, sessionToken)
+        **delegate_key_material** = AES-CMAC(reg_key, "delegate_key")
+        **adv_key_material** = AES-CMAC(reg_key, "adv_key")
+
+        logged in as owner (session_key, session_token=session_token)
+    end note
+    
+    note over Server, Sesame2
+        **SIG2** = AES-CMAC(sesame2_symm_key, server_token + delegate_key_material + adv_key_material)
+        This 1st key is always assigned key_idx = 0 upon registration.
+    end note
+    
+    |||
+    
+    Sesame2 --> 手機app: Rsp(plaintext, result, it_code=Register, params=SIG2)
+    Sesame2 -> 手機app: publish(publish_login_s in I002-login.md)
+    手機app -> Server: HTTP_REQ(delegate_key_material, adv_key_material, server_token, SIG2)
+    
+    note over Server
+        **delegate_key** = AES-CMAC(sesame2_symm_key, delegate_key_material)
+        **adv_key** = AES-CMAC(sesame2_symm_key, adv_key_material)
+        Register Commit
+    end note
+
+end
+@enduml

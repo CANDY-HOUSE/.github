@@ -1,0 +1,25 @@
+@startuml
+title 配對WiFiModule2與Sesame2
+participant 手機app
+box "AWS IoT" #White/ffcc7c
+participant "WiFiModule2 Shadow"
+participant "Sesame2 Shadow"
+end box
+participant WiFiModule2
+participant Sesame2
+
+
+note over WiFiModule2: \
+初始狀態是藍芽中心設備
+
+手機app -> "WiFiModule2 Shadow": 同步 Sesame清單\n同步 低權限user_key
+"WiFiModule2 Shadow" -> WiFiModule2: 同步 Sesame清單\n同步 低權限user_key
+
+note over WiFiModule2, Sesame2: \
+建立 BLE連線\n進行 BLE_login\n建立 AESCCM加密通道
+
+Sesame2 -> WiFiModule2: Sesame狀態\n(是否鎖上?、電池、角度)
+WiFiModule2 -> "Sesame2 Shadow": 同步 Sesame狀態\n(是否鎖上?、電池、角度)
+"Sesame2 Shadow" -> 手機app: 同步Sesame狀態\n(是否鎖上?、電池、角度)
+
+@enduml

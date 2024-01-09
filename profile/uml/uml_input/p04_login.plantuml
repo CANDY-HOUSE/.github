@@ -1,0 +1,29 @@
+@startuml
+
+title WiFiModule2 BLE login
+
+/'
+participant Server
+'/
+participant 手機app
+participant WiFiModule2
+
+group Successful login
+
+note over 手機app: 有 WiFiModule_public_key,\n持 手機app_key_pair
+
+WiFiModule2 -> 手機app: ADV(registered status)
+手機app -> WiFiModule2: BLE connect, connected, discover & enable notification
+WiFiModule2 -> 手機app: publish(WiFiModule_token)
+手機app -> WiFiModule2: (plaintext) key_idx, 手機app_public_key, 手機app_session_token, session_auth
+
+note over WiFiModule2, 手機app: \
+session_token = 手機app_session_token+WiFiModule_session_token\n\
+session_auth或稱SIG = AES-CMAC(user_key, key_idx+手機app_public_key+session_token)\n\
+session_key = AES-CMAC(ECDH_shared_secret, session_token)
+
+note over WiFiModule2: WiFiModule2 will directly disconnect on any error
+WiFiModule2 --> 手機app: (encrypted) login_info
+end
+
+@enduml
