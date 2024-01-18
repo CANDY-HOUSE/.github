@@ -1,5 +1,5 @@
 ![SesameSDK](https://github.com/CANDY-HOUSE/.github/blob/main/profile/images/SesameSDK.png?raw=true)
-<p>CANDY HOUSE</p>
+<h3>CANDY HOUSE</h3>
 <p align="center">
   <!-- 1行目 -->
   <div style="text-align: center;">
