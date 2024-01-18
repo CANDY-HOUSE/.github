@@ -1,6 +1,6 @@
 ![SesameSDK](https://github.com/CANDY-HOUSE/.github/blob/main/profile/images/SesameSDK.png?raw=true)
 <h3>CANDY HOUSE</h3>
-<div style="text-align: center;">
+<div align="center">
   <!-- 1行目 -->
   <div>
     <img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/sesame_key_icon_github.png" width="100px;" alt="logo1"/>
