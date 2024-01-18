@@ -1,5 +1,5 @@
 ![SesameSDK](https://github.com/CANDY-HOUSE/.github/blob/main/profile/images/SesameSDK.png?raw=true)
 <h3>Partner Companys</h3>
 <p align="center">
-  <img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/partner_companys.png?v=1705542563" width="800px" alt="logo"/>
+  <img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/partner_companys.png?v=1705542563" width="900px" alt="logo"/>
 </p>
