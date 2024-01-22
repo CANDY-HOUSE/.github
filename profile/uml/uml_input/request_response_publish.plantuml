@@ -1,19 +1,19 @@
 @startuml
 title Request, Response, Publish
 participant BLEcentral [
-    =iOS/Android/ESP32
+    iOS/Android/ESP32
     ----
-    ""BLE Central app""
+    BLE Central app
 ]
 participant Server [
     =Sesame
     ----
-    ""BLE Peripheral""
+    BLE Peripheral
 ]
 
-BLEcentral -> Server: Request\n(基於 BLE Write without response 實作)
-Server --> BLEcentral: Response\n(基於 BLE Notify 實作)
+BLEcentral -> Server: **Request**\n(基於 BLE Write without response 實作)
+Server --> BLEcentral: **Response**\n(基於 BLE Notify 實作)
 Server -> Server: Process
-Server --> BLEcentral: Publish\n(基於 BLE Notify 實作)
+Server --> BLEcentral: **Publish**\n(基於 BLE Notify 實作)
 
 @enduml
