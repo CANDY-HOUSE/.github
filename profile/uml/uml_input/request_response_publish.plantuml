@@ -1,5 +1,4 @@
 @startuml
-title Request, Response, Publish
 participant BLEcentral [
     iOS/Android/ESP32
     ----
