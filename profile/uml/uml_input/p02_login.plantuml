@@ -1,29 +1,17 @@
 @startuml
+APP -> APP: {公鑰A, 私鑰A} = secp256r1()
+APP -> Sesame5: 發送{公鑰A, 手機 timestamp , 註冊命令}
 
-title Sesame2 BLE login
+Sesame5 --> APP: (ssm5被註冊)?回覆已註冊:不回複
 
-/'
-participant Server
-'/
-participant "藍芽中心設備(手機app 或 WiFiModule2)"
-participant Sesame2
+Sesame5 -> Sesame5: 使用手機 timestamp 設定 ssm5 時間
+Sesame5 -> Sesame5: {公鑰S, 私鑰S} = secp256r1()
+Sesame5 -> Sesame5: Secret = secp256r1(公鑰A, 私鑰S), Device secret = Secret 前16bytes
+Sesame5 -> Sesame5: Token = AES_CMAC(Device secret, random code)
+Sesame5 --> APP: 回覆{註冊成功, 機械狀態, 機械設定, 公鑰S}
 
-group Successful login
-
-note over "藍芽中心設備(手機app 或 WiFiModule2)": 有 sesame_public_key,\n持 藍芽中心設備的key_pair
-
-Sesame2 -> "藍芽中心設備(手機app 或 WiFiModule2)": ADV(registered status)
-"藍芽中心設備(手機app 或 WiFiModule2)" -> Sesame2: BLE connect, connected, discover & enable notification
-Sesame2 -> "藍芽中心設備(手機app 或 WiFiModule2)":publish(sesame_token), see I014-initial.md
-"藍芽中心設備(手機app 或 WiFiModule2)" -> Sesame2: (plaintext) key_idx, 藍芽中心設備_public_key, 藍芽中心設備_session_token, session_auth
-
-note over Sesame2, "藍芽中心設備(手機app 或 WiFiModule2)": \
-session_token = 藍芽中心設備_session_token + sesame_session_token\n\
-session_auth或稱SIG = AES-CMAC(user_key, key_idx + 藍芽中心設備_public_key + session_token)\n\
-session_key = AES-CMAC(ECDH_shared_secret, session_token)
-
-note over Sesame2: Sesame2 will directly disconnect on any error
-Sesame2 --> "藍芽中心設備(手機app 或 WiFiModule2)": (encrypted) login_info, see I002-login.md rsp_login_s
-end
+APP -> APP: 設定 ssm5 機械狀態，機械設定
+APP -> APP: Secret = secp256r1(公鑰S, 私鑰A), Device secret = Secret 前16bytes
+APP -> APP: Token = Token = AES_CMAC(Device secret, random code)
 
 @enduml
