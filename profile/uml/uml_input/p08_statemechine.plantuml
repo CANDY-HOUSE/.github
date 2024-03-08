@@ -1,0 +1,37 @@
+@startuml
+title 封裝後的 SesameSDK 狀態機 
+
+|Sesame(APP)|
+start 
+:noBleSignal;
+:receivedBle;
+:bleConnecting;
+:waitingGatt;
+|Sesame5|
+if(ssm5被註冊) then (否)
+  :readyToRegister;
+  :registering;
+  
+  |Sesame(APP)|
+  :locked;
+  :nlocked;
+  stop
+else (是)
+  |Sesame5|
+  :bleLogining;
+	
+	if(ssm5被註冊) then (否)
+	:bleDisconnecting;
+  |Sesame(APP)|
+
+	:noBleSignal;
+stop
+	else (是)
+	|Sesame5|
+	  :moved;
+		:ready;
+
+  stop
+endif
+
+@enduml
