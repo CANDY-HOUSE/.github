@@ -7,6 +7,7 @@ start
 :receivedBle;
 :bleConnecting;
 :waitingGatt;
+
 |Sesame5|
 if(ssm5被註冊) then (否)
   :readyToRegister;
@@ -20,7 +21,7 @@ else (是)
   |Sesame5|
   :bleLogining;
 	
-	if(ssm5被註冊) then (否)
+	if(ssm5已登录) then (否)
 	:bleDisconnecting;
   |Sesame(APP)|
 
