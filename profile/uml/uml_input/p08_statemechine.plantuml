@@ -15,7 +15,7 @@ if(ssm5被註冊) then (否)
   
   |Sesame(APP)|
   :locked;
-  :nlocked;
+  :unlocked;
   stop
 else (是)
   |Sesame5|
