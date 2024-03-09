@@ -1,0 +1,20 @@
+@startuml
+
+title Sesame 5 Login
+
+participant 手機app
+participant Sesame5
+
+group App login
+
+手機app --> 手機app: 有public_key,手機secret_key_pair
+Sesame5 -> 手機app: ADV(registered status)
+手機app -> Sesame5: BLE connect, connected, discover & enable notification
+Sesame5 -> 手機app: publish(token)
+手機app -> Sesame5: (plaintext)  手機app_public_key, 手機 timestamp
+
+note over Sesame5: Sesame5 directly disconnect on any error
+Sesame5 --> 手機app: (success) MechStatus
+end
+
+@enduml
