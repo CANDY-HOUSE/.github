@@ -1,0 +1,19 @@
+@startuml
+
+title Sesame Send Command
+
+participant 手機app
+participant Sesame5
+
+group Send command
+
+手機app --> 手機app: Generate command data
+手機app -> Sesame5: Send command data 
+Sesame5 -> 手機app: Response,command, status 
+手機app -> 手機app: Refresh user interface from device status
+
+note over Sesame5: Sesame5 directly disconnect on any error
+Sesame5 --> 手機app: (success) MechStatus
+end
+
+@enduml
