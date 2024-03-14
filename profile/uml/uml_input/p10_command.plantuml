@@ -7,9 +7,9 @@ participant Sesame5
 
 group Send command
 
-手機app --> 手機app: Generate command data
+手機app -> 手機app: Generate command data
 手機app -> Sesame5: Send command data 
-Sesame5 -> 手機app: Response,command, status 
+Sesame5 --> 手機app: Response,command, status 
 手機app -> 手機app: Refresh user interface from device status
 
 note over Sesame5: Sesame5 directly disconnect on any error
