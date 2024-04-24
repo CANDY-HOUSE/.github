@@ -1,5 +1,4 @@
 @startuml
-title 藍牙狀態轉換
 
 |Sesame(APP)|
 start 
@@ -9,7 +8,7 @@ start
 :waitingGatt;
 
 |Sesame5|
-if(ssm5被註冊) then (否)
+if(isRegistered?) then (No!)
   :readyToRegister;
   :registering;
   
@@ -17,17 +16,17 @@ if(ssm5被註冊) then (否)
   :locked;
   :unlocked;
   stop
-else (是)
+else (Yes!)
   |Sesame5|
   :bleLogining;
 	
-	if(ssm5已登录) then (否)
+	if(isLogin?) then (No!)
 	:bleDisconnecting;
   |Sesame(APP)|
 
 	:noBleSignal;
 stop
-	else (是)
+	else (Yes!)
 	|Sesame5|
 	  :moved;
 		:ready;
