@@ -1,5 +1,5 @@
 @startuml
-title 封裝後的 SesameSDK 狀態機 
+title 藍牙狀態轉換
 
 |Sesame(APP)|
 start 
