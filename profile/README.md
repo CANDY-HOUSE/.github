@@ -5,7 +5,7 @@
 </p>
 <p>
   <a href="https://prtimes.jp/main/html/rd/p/000000008.000037218.html" target="_blank">アスタリスク</a>
-  <a href="https://nature.global/blog/22303/" target="_blank">nature</a>
+  <a href="https://prtimes.jp/main/html/rd/p/000000142.000019285.html" target="_blank">nature</a>
   <a href="https://prtimes.jp/main/html/rd/p/000000051.000052057.html" target="_blank">インテリックス/FLIE</a>
   <a href="https://prtimes.jp/main/html/rd/p/000000011.000037218.html" target="_blank">KEYVOX</a>
   
