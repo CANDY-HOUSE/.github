@@ -1,5 +1,5 @@
 <h2>To Do やること</h2>
-<button style="display:none;text-align:left;" onclick="var e=document.getElementById('showOrHide');
+<button style="display:block;text-align:left;" onclick="var e=document.getElementById('showOrHide');
   if(e.style.display==='none'){
     e.style.display='block';
     this.textContent='▼できたことを折り畳む';
@@ -7,8 +7,8 @@
     e.style.display='none';
     this.textContent='▶︎できたことを展開';
   }
-">▼できたことを折り畳む</button>
-<pre id="showOrHide"><code>
+">▶︎できたことを展開</button>
+<pre id="showOrHide" style="display:none;"><code>
 ✅<span style="color: #e3e3e3;"><s>SesameBot2の時間単位を0.1秒単位で調整できるようになります</s></span>
 ✅<span style="color: #e3e3e3;"><s>Android/iOSで設定されたMatterのSesame名とオートメーションがリセットされるバグの修正</s></span>
 ✅<span style="color: #e3e3e3;"><s>SesameBot2は、Matterにてデフォルトの役割が「ライトスイッチ」になるように。</s></span>
