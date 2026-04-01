@@ -8,7 +8,7 @@
   <a href="https://prtimes.jp/main/html/rd/p/000000008.000037218.html" target="_blank">アスタリスク</a>
   <a href="https://prtimes.jp/main/html/rd/p/000000142.000019285.html" target="_blank">nature</a>
   <a href="https://prtimes.jp/main/html/rd/p/000000011.000037218.html" target="_blank">KEYVOX</a>
-  <a href="https://prtimes.jp/main/html/rd/p/000000010.000031331.html" target="_blank">LiveSmart</a>
+  <a href="https://prtimes.jp/main/html/rd/p/000000048.000031331.html" target="_blank">LiveSmart</a>
   <a href="https://prtimes.jp/main/html/rd/p/000000022.000027777.html" target="_blank">LinkJapan</a>
   <a href="https://prtimes.jp/main/html/rd/p/000000022.000039435.html" target="_blank">Connected Design</a>
   <a href="https://rideblink.weebly.com/" target="_blank">bLink</a>
