@@ -95,7 +95,39 @@
 <p><br><br><br></p>
 <h2>Change Log 変更履歴</h2>
 <pre><code>
-<b>2026年4月4日(土)</b>
+<b>2026年4月11日(土)</b>
+<u>Hub3</u>
+ 3.0-13-666314
+1. 
+不具合修正：Hub3にBluetoothセサミデバイスを5台接続し、かつHub3をMatterネットワーク（Google Homeなど）に接続した場合、24時間以内に必ずHub3の青色LEDが高速点滅し、いずれかのBluetoothセサミデバイスに接続できなくなる不具合を修正。
+原因は、先週ESP32の最新SDK/Frameworkであるesp-idf v5.5.3にアップデートした際、esp-idfの挙動が従来と異なることが判明したためです。今後はesp-idfに依存せず、アプリケーション層でBluetoothの状態を確認・管理するように変更しました。
+2. 
+不具合修正：Hub3経由でセサミデバイスを遠隔からDFUアップグレードすると失敗する不具合を修正（再現可能）。
+対処として、esp-idfのBluetooth状態管理に依存せず、アプリケーション層でBluetoothの状態を確認・管理することで、esp-idfのBluetooth状態エラーを回避するようにしました。
+3. 
+不具合修正：Hub3のネットワーク切り替え操作時、ネットワーク一覧の選択画面に移動するとHub3が再起動する不具合を修正（ランダムに発生）。
+原因は、当該機能に割り当てられたメモリが不足していたためです。
+4. 
+使用されなくなった古いコードを全て削除し、全体的なリファクタリングを実施することで、システムの安定性向上とエントロピーの低減を行いました。
+
+
+<a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.134(599)-eb180dc @TestFlight</u></a>
+<a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(762)-d38b21ecb @Github</u></a>
+1.
+先週のAndroid アプリのリファクタリングの続き、iOSアプリのUIコードレビューも実施し、大規模なリファクタリング（整理・軽量化）を行いました。現在、各ハードウェア製品のコード構造が整理・統一され、保守性が大幅に向上しました。
+2.
+Faceシリーズのレーダー「完全オフ」機能に対応しました。
+レーダーの検知距離を「0cm」に設定することで、玄関先でレーダーを反応させたくないお客様にとって、大変便利な選択肢となります。
+なお、最短距離に設定しても、施錠状態で「解錠ボタン/側面ボタン」を押すと、顔認証や手のひら静脈認証が即座に開始されるため、ある程度、極度な省電力と極上のユーザー体験の両立を実現できます。
+<img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/Face1RadarCompletelyOFF.png"></a>
+3.
+SesameBot2の台本（スクリプト）UIを改善しました。初心者ユーザーに台本を切り替えられることが分かりやすいよう改善しました。
+<img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/youReallyCanSwiftScriptForSesameBot2.png"></a>
+
+</code></pre>
+<hr>
+<pre><code>
+<b>2026年4月4日(土)</b>  
 <a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.134(590)-d7ddfea @TestFlight</u></a>
 <a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(758)-7d73a6a9c @Github</u></a>
 1.
