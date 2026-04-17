@@ -37,6 +37,7 @@
 ✅<span style="color: #e3e3e3;"><s>biz.candyhouse.co がオープンソース化しました！GitHub Actions により、公開リポジトリへ自動同期されるようになります。</s></span>
 ✅<span style="color: #e3e3e3;"><s>管理者(マネージャーやオーナー)が履歴を削除できる機能。</s></span>
 ✅<span style="color: #e3e3e3;"><s>SesameBotの台本の名称を変更できるように。</s></span>
+✅<span style="color: #e3e3e3;"><s>chat.candyhouse.coがオープンソース化へ！GitHub Actionsで公開リポジトリに自動公開されます。</s></span>
 </code></pre>
 <pre><code>
 ☑️Hub3＋SesameTouch+OpenSensor+Bizの正式リリース
@@ -67,8 +68,6 @@
 (2026年4月末の予定)
 ☑️人通りの多い場所で電池を確実に2〜3年持たせながら、極上のユーザー体験を提供することも不可能ではありません。レーダーを最短距離に設定していても、屋外に設置した魔法道具やCANDY HOUSE RemoteなどでFaceを起動し、即座に顔認識を行える仕組みの実現。
 (2026年5月末の予定)
-☑️chat.candyhouse.coがオープンソース化へ！GitHub Actionsで公開リポジトリに自動公開されます。
-(2026年5月末の予定)
 ☑️ESP32用のオープンソースSesameSDKも、GitHub Actionsで公開リポジトリに自動公開されます。
 (2026年5月末の予定)
 ☑️Hub3 + Remote/Remote nano + CANDY HOUSE全製品 がMatter依存せず純正連携できるように。
@@ -95,6 +94,27 @@
 <p><br><br><br></p>
 <h2>Change Log 変更履歴</h2>
 <pre><code>
+<b>2026年4月18日(土)</b>
+<a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.138(604)-f8892d1 @TestFlight</u></a>
+<a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(769)-0ba204310 @Github</u></a>
+1.
+iOSアプリにて、大量のデバイス（757台）使用時にiOSアプリが非常に重くなる・クラッシュする問題を解決しました。(android appには同様な問題なし)
+(Thanks to グッドルーム株式会社様のヘビーユース)
+2.
+androidアプリにて、ユーザーがレーダー距離の調整に成功したと勘違いしないように、Android端末のBluetoothがSesame Faceに接続されていない状態では、レーダー距離調整のスライドバーUIを非表示にする仕様に変更しました。
+3.
+androidアプリにて、Android Gradle Plugin（AGP）を9.1.0から最新版9.1.1に更新しました。
+
+<u>Sesame Bot 2</u>
+ 3.0-17-67cd1b
+1.SesameBot2をSesameFaceシリーズに対応させました。
+
+<u>chat.candyhouse.co</u>
+chat.candyhouse.coがオープンソース化になりました。GitHub Actionsで公開リポジトリに自動同期するようになりました。
+
+</code></pre>
+<hr>
+<pre><code> 
 <b>2026年4月11日(土)</b>
 <u>Hub3</u>
  3.0-13-666314
