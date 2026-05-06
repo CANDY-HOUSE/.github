@@ -16,4 +16,5 @@
   <a href="https://www.smartkaigisitsu.net/lp/smartlocks" target="_blank">スマート空間予約</a>
   <a href="https://x.com/RiiiverDev/status/1549287924960837635" target="_blank">CITIZEN</a>
   <a href="https://prtimes.jp/main/html/rd/p/000000002.000115098.html" target="_blank">ROOM KEY</a>
+  <a href="https://golren.com/" target="_blank">ゴルレン</a>
 </p>
