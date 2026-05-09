@@ -93,6 +93,25 @@
 <p><br><br><br></p>
 <h2>Change Log 変更履歴</h2>
 <pre><code>
+<b>2026年5月10日(日)</b>
+<a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.141(627)-18f4036 @TestFlight</u></a>
+<a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(796)-ef49a3e1a @Github</u></a>
+1.
+android appにて、AGP（Android Gradle Plugin）を 9.2.0 から最新の 9.2.1 へアップグレードしました。
+2.
+android appにて、KSP（Kotlin Symbol Processing）を 2.3.2 から 2.3.7 へアップデートしました。kotlin.sourceSets DSLの警告がなくなり、android.disallowKotlinSourceSets=false を削除できるようになりました。
+3.
+iOS app にて、ホーム画面でドラッグ並び替えを行う際、Hub3/Bot2の子リストが展開されたままだと範囲外アクセスによりクラッシュする問題を修正しました。ドラッグ開始前に、展開中の項目を自動的に閉じるようにしました。
+4.
+iOS/android app にて、当初はSwift/Kotlinで実装予定だったものの、未実装のままとなっていたHub3機能関連コードを削除し、今後はHTML5で実装する方針に変更しました。あわせて、リファクタリング（整理・軽量化）を実施しました。
+https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/commit/dd31528d2ca4b39a21339e2450f86f073b07ba7c
+https://github.com/CANDY-HOUSE/SesameSDK_iOS_with_DemoApp/commit/2ee2400ce8a307bd372fd7fb63364358aa9f7cff
+5.
+iOS/android app にて、Sesame3、Sesame4、SesameBot1、SesameBike1 がデバイス一覧で電池残量を表示しない問題を修正しました。以前、Swift/KotlinコードをHTML5へ移行した際に、旧製品への配慮が漏れていました。
+
+</code></pre>
+<hr>
+<pre><code> 
 <b>2026年5月1日(金)</b>
 <u>Open Sensor 2</u>
  3.0-8-fbc01a
