@@ -93,6 +93,21 @@
 <p><br><br><br></p>
 <h2>Change Log 変更履歴</h2>
 <pre><code>
+<b>2026年5月23日(土)</b>
+<a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.143(631)-52d26de @TestFlight</u></a>
+<a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(805)-67bbebfc5 @Github</u></a>
+Androidアプリにおいて、MQTT（AWS IoT）関連コードのリファクタリングおよび整理を行い、iOS側の実装方式との統一を図りました。
+目的としては、来週のアップデートで、Androidアプリ起動時にMQTTの状態（Hub3やHub3経由でのセサミ状態）を即時に表示し、遅延を完全になくすためです：
+https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/commit/edb70a110c4f836331a2773f768df18d4c48044b
+https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/commit/134900d2997d3b5f18fdd7fbffe98ab675abfeb8
+
+iOSアプリにおいては、未発表の新製品に関する修正を除き、変更はございません。
+何故ならSwift / Kotlinのコードの大部分を既にHTML5（biz.candyhouse.co）へ移行しており、そしてbiz.candyhouse.coは毎日更新されているからです。
+Swift / Kotlinネイティブへの信仰を手放したメリットが、少しずつ現れ始めています。
+
+</code></pre>
+<hr>
+<pre><code>
 <b>2026年5月16日(土)</b>
 <a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.142(629)-8890e4d @TestFlight</u></a>
 <a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(800)-68b6a6461 @Github</u></a>
@@ -104,9 +119,6 @@ http://github.com/CANDY-HOUSE/biz.candyhouse.co/commit/04aedc15e872726307629eb9e
 ユーザーにSwift/Kotlinとの違いを全く感じさせないパフォーマンスを期待しています。
 
 iOS / Androidアプリにおいては、未発表の新製品に関する修正を除き、変更はございません。
-何故ならSwift / Kotlinのコードの大部分を既にHTML5（biz.candyhouse.co）へ移行しており、そしてbiz.candyhouse.coは毎日更新されているからです。
-Swift / Kotlinネイティブへの信仰を手放したメリットが、少しずつ現れ始めています。
-
 </code></pre>
 <hr>
 <pre><code> 
