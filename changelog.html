@@ -98,7 +98,7 @@
 1.
 ユーザーの陰山様からのフィードバックに感謝いたします！Androidアプリにおいて、ホーム画面のセサミリストで展開済みのSesameBot2の台本一覧上にて、セサミボットAを操作したつもりがセサミボットBをトリガーしてしまう不具合を修正いたしました。
 https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/commit/65e8a9f998784fabe1112de7f17875f40d63f3b2
-https://youtube.com/shorts/dorzSgShnhI
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dorzSgShnhI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 2.
 Androidアプリにおいて、MQTT（AWS IoT）関連コードのリファクタリングおよび整理を行い、iOS側の実装方式との統一を図りました。
@@ -1570,8 +1570,9 @@ VivoKey Japan合同会社様よりご指摘をいただき、7バイトのNFCタ
 
 ・原因：
 <a href="https://drive.google.com/drive/folders/191kugNmP3bS4dBN_XSgO7fJBlXiEuhcV" target="_blank">https://drive.google.com/drive/folders/191kugNmP3bS4dBN_XSgO7fJBlXiEuhcV/</a><br>Espressif半導体会社様の自社SDKにバグがあることがわかりました。 Espressif社に弊社側でworkaround(回避策)を実装するよう求められましたので指示通り実装いたしました。同様にEspressif社のESP32C3を使用されているnature社様とsb社様も、同じ問題に直面されているかと存じます。しかしながら、初代および二代目のWiFiモジュールで採用していた欧米系のBroadcom WICED半導体は、バグに対してほとんど対応してくれなかったのに比べ、Espressif社とは中国語で共に問題解決に取り組めるのは、本当に素晴らしいことです。
-・再現：<a href="https://youtu.be/beRUiVAidFo" target="_blank">https://youtu.be/beRUiVAidFo/</a><br>WiFiが切断して再接続、切断して再接続、切断して再接続、切断して再接続、切断して再接続を繰り返し、一日経つと文鎮化になってしまいます。
-・対策：再起動時に、esp_restart()がsecure boot failedに入ってしまうバグを回避。　
+・再現：WiFiが切断して再接続、切断して再接続、切断して再接続、切断して再接続、切断して再接続を繰り返し、一日経つと文鎮化になってしまいます。
+・対策：再起動時に、esp_restart()がsecure boot failedに入ってしまうバグを回避。
+<iframe width="560" height="315" src="https://www.youtube.com/embed/beRUiVAidFo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>　
 
 2. 新機能【Biz】Sesame TouchのNFCカード管理機能の強化。
 
