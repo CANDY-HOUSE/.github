@@ -99,7 +99,7 @@
 <a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.145(641)-baeb302 @TestFlight</u></a>
 <a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(818)-a57302aeb @Github</u></a>
 1.【Android app】オープンソースであるため、コード難読化を行う必要がないため、ProGuard 内のコード難読化設定をすべて削除しました。あわせて、コード量も削減しました。
-<b>2.【重要アップデート】【Android app & iOS app】UIコード側にて、Faceシリーズのレーダー検知距離を最長1メートルに制限させて頂きました。レーダーの検知距離を長く設定しすぎると、ちょっとした風による僅かな草の揺れにも過敏に反応し、『顔・静脈認証』が起動してしまうことが実験で分かりました。ユーザーの皆様の電池がすぐ減ってしまう一番の原因でした。</b>
+<b>2. 【重要アップデート】【Android app & iOS app】UIコード側にて、Faceシリーズのレーダー検知距離を最長1メートルに制限させて頂きました。レーダーの検知距離を長く設定しすぎると、ちょっとした風による僅かな草の揺れにも過敏に反応し、『顔・静脈認証』が起動してしまうことが実験で分かりました。ユーザーの皆様の電池がすぐ減ってしまう一番の原因でした。</b>
 3.【Android app & iOS app】Bluetoothを使用する全てのUI画面の最上部に、Bluetooth状態異常を知らせる「赤色の警告バー」を補完しました（実装漏れだった画面への補完）。6年前にやっておくべきことでした。
 <img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/Screenshot_20260606-012547.png"></a>
 
@@ -130,7 +130,7 @@
  3.0-9-3ca817
 <u>Sesame Touch / Sesame Touch 2</u>
  3.0-10-3ca817
-<b>1.【!重要アップデート!】上記機種におけるBluetoothの未アドバタイズ・未接続の不具合を修正しました。
+<b>1. 【!重要アップデート!】上記機種におけるBluetoothの未アドバタイズ・未接続の不具合を修正しました。
 （詳細な原因と対応：BLE接続の初期化時にアドバタイズコマンドを同時に実行すると、RivieraWavesカーネルのBluetooth処理が完全に停止し、接続および他デバイスへの自発的な接続が行えなくなる問題を特定・修正しました。この現象は、複数デバイスのBluetooth接続によりシステムが高負荷な場合や、Hub3のネットワークが不安定で上記機種のBluetoothへの再接続を繰り返す環境下で発生しやすくなっていました。）</b>
 2. SesameOSアップデート(DFU)時のBluetooth通信速度を最大化しました。
 3. Bluetooth認証（クレデンシャル）エラーのコールバックコードに対応しました。
