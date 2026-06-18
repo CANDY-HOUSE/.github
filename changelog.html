@@ -95,6 +95,33 @@
 <p><br><br><br></p>
 <h2>Change Log 変更履歴</h2>
 <pre><code>
+<b>2026年6月19日(金)</b>
+<a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.146(647)-0b9be93 @TestFlight</u></a>
+<a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(824)-170d6efdd @Github</u></a>
+1.【iOS app】UIバグの修正。レーダースライダーのLiquid Glassバブルが、初回表示時にずれる不具合を修正。
+2.【Android app】Open Sensorシリーズの操作履歴を、セサミから独立させました。同時にOpen Sensorの通知設定を新設し、通知を受信するかどうかを選択できるようにしました。
+<img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/OpenSensorHistoryNotificationOniOSandroid.png"></a>
+
+<u>Sesame Face Pro</u>
+ 3.0-18-fa9bde
+<u>Sesame Face</u>
+ 3.0-19-fa9bde
+<u>Sesame Face Pro AI時代版</u>
+ 3.0-22-fa9bde
+<u>Sesame Face AI時代版</u>
+ 3.0-23-fa9bde
+<b>1. 【重要アップデート】先週のUIでの制限の続き、組込み側のソフトウェアにても、Faceシリーズのレーダー検知距離を最長1メートルに制限させて頂きました。レーダーの検知距離を長く設定しすぎると、ちょっとした風による僅かな草の揺れにも過敏に反応し、『顔・静脈認証』が起動してしまうことが実験で分かりました。ユーザーの皆様の電池がすぐ減ってしまう一番の原因でした。</b>
+
+<u>Open Sensor 2</u>
+ 3.0-24-47fe7c
+1.「光速オートロック」を実現しました。
+従来は、ドアが閉まった後にBluetooth接続を開始して施錠を行っていました。しかし現在では、ドアが開いた瞬間に予めBluetooth接続を完了させます（※1分間のタイムアウトあり）。
+そのため、ドアが閉まった瞬間にはすでにBluetoothが繋がっており、接続を待つ必要がなくなりました。電磁波のスピードで即座にコマンドが送信され、一瞬で施錠されます。
+この仕組みにより、普段はBluetoothを繋がないことによる「省電力化」を達成すると共に、ダブルロック同時施錠の「安定性」を大幅に向上させました。
+
+</code></pre>
+<hr>
+<pre><code>
 <b>2026年6月13日(土)</b>
 <a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.145(641)-baeb302 @TestFlight</u></a>
 <a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(818)-a57302aeb @Github</u></a>
@@ -214,9 +241,9 @@ iOS/android app にて、Sesame3、Sesame4、SesameBot1、SesameBike1 がデバ�
 <pre><code> 
 <b>2026年5月1日(金)</b>
 <u>Open Sensor 2</u>
- 3.0-8-fbc01a
-<u>Open Sensor 1</u>
  3.0-24-fbc01a
+<u>Open Sensor 1</u>
+ 3.0-8-fbc01a
 1.電池曲線グラフには2本の曲線があります。1本はスリープ中の低消費電力待機時に測定した「軽負荷電圧」、もう1本はBluetoothコマンド送信時やモーター動作時に測定した「重負荷電圧」です。
 今回のアップデートでは、「軽負荷電圧」＞「重負荷電圧」となるデータのみをサーバーへ報告するようになりました。センサー誤差やサンプリングタイミングの差によって、ユーザーが疑問を抱いたり、混乱したりしないよう改善しています。
 
