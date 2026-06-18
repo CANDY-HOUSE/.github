@@ -42,7 +42,9 @@
 </code></pre>
 <pre><code>
 ☑️ドアが閉まっている状態で、オープンセンサー2の切り替えスイッチをOFFからONにすると、鍵が施錠されるようになります。
-(2026年6月中旬の予定)
+(2026年6月末の予定)
+☑️SesameBot2、SesameBike2、Open Sensorにおける履歴及び通知機能
+(2026年6月末の予定)
 ☑️Hub3＋SesameTouch+OpenSensor+Bizの正式リリース
   ✅<span style="color: #e3e3e3;"><s>①Hub3はほとんどの操作でBluetoothが不要なため、次はBluetooth経由でWiFiパスワード設定UI以外の全てのUIをKotlin/SwiftからHTML5に移行します。
 メリットは、アプリ保守コストを90%削減でき、Web操作もできるようになる点です。</s></span>
@@ -60,8 +62,6 @@
 ☑️Matterネットワークにおいて、赤外線リモコン対応機器（エアコン、扇風機、照明等）をサポートします。Google Home/HomePod Siri/Echo Alexa音声で赤外線リモコン対応機器の操作が可能となります
 (2026年6月末の予定)
 ☑️CANDY HOUSE全製品に対して曜日指定、時間指定等のスケジュール稼働機能。例えば、オートロックの時間帯指定、夜間だけオートロック、GoogleカレンダーやSlackとの連携、期間限定のパスワード解錠とSuica解錠、ドア開いたら何分間閉めてないなら、通知が来る、など。
-(2026年6月末の予定)
-☑️SesameBot2、SesameBike2、Open Sensorにおける履歴及び通知機能
 (2026年6月末の予定)
 ☑️持ち去り対策機能につきましては、近日中にソフトウェアアップデートにより実現いたします。新たなハードウェアや半導体チップは一切不要です。
 具体的な実現方法としましては、万が一Sesame FaceとHub 3のBluetooth接続が途切れた際に、アプリへ通知が届く仕組みとなります。
@@ -102,6 +102,7 @@
 2.【Android app】Open Sensorシリーズの操作履歴を、セサミから独立させました。同時にOpen Sensorの通知設定を新設し、通知を受信するかどうかを選択できるようにしました。
 <img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/OpenSensorHistoryNotificationOniOSandroid.png"></a>
 
+
 <u>Sesame Face Pro</u>
  3.0-18-fa9bde
 <u>Sesame Face</u>
@@ -111,6 +112,7 @@
 <u>Sesame Face AI時代版</u>
  3.0-23-fa9bde
 <b>1. 【重要アップデート】先週のUIでの制限の続き、組込み側のソフトウェアにても、Faceシリーズのレーダー検知距離を最長1メートルに制限させて頂きました。レーダーの検知距離を長く設定しすぎると、ちょっとした風による僅かな草の揺れにも過敏に反応し、『顔・静脈認証』が起動してしまうことが実験で分かりました。ユーザーの皆様の電池がすぐ減ってしまう一番の原因でした。</b>
+
 
 <u>Open Sensor 2</u>
  3.0-24-47fe7c
@@ -144,6 +146,7 @@
 
 5. 【iOS app】Open Sensorシリーズの操作履歴機能を実装しました。
 <img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/OpenSensorHisotryPage_iOS.png"></a>
+
 
 <u>Sesame Face Pro</u>
  3.0-18-3ca817
