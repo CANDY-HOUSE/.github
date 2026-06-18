@@ -250,6 +250,7 @@ iOS/android app にて、Sesame3、Sesame4、SesameBot1、SesameBike1 がデバ�
 1.電池曲線グラフには2本の曲線があります。1本はスリープ中の低消費電力待機時に測定した「軽負荷電圧」、もう1本はBluetoothコマンド送信時やモーター動作時に測定した「重負荷電圧」です。
 今回のアップデートでは、「軽負荷電圧」＞「重負荷電圧」となるデータのみをサーバーへ報告するようになりました。センサー誤差やサンプリングタイミングの差によって、ユーザーが疑問を抱いたり、混乱したりしないよう改善しています。
 
+
 <a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.140(619)-f120a5a @TestFlight</u></a>
 <a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(789)-e046868cb @Github</u></a>
 1.
@@ -268,11 +269,13 @@ iOS/android app にて、赤い❗マークで「SesameOSの最新バージョ�
  3.0-17-d3990f
 1.Bugfix: 今年の初めにSesameBot2 / SesameBike2 / Sesame5 / Sesame5 Pro / Sesame5 北欧北米版のコードベースを統合した際、SesameBot2の改修において2箇所ほど見落としがございました。その影響により、SesameBot2でBluetoothのコールバックが送信されない場合があり、スマホアプリのUIフィードバックの体験が低下する問題を修正いたしました。
 
+
 <u>biz.candyhouse.co</u>
 1.
 現在、Web版にて、赤い❗マークで「SesameOSの最新バージョンがございます。ぜひ更新をお願いいたします。」とユーザーにお知らせする機能を実装いたしました。
 来週中にiOS・Androidアプリにも同機能を追加予定です。
 <img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/showNewSesameOSAvailableOnBiz.png"></a>
+
 
 <a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.139(613)-c5a005c @TestFlight</u></a>
 <a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(776)-623c7b79e @Github</u></a>
@@ -300,9 +303,11 @@ androidアプリにて、ユーザーがレーダー距離の調整に成功し�
 3.
 androidアプリにて、Android Gradle Plugin（AGP）を9.1.0から最新版9.1.1に更新しました。
 
+
 <u>Sesame Bot 2</u>
  3.0-17-67cd1b
 1.SesameBot2をSesameFaceシリーズに対応させました。
+
 
 <u>chat.candyhouse.co</u>
 1.chat.candyhouse.coがオープンソース化になりました。GitHub Actionsで公開リポジトリに自動同期するようになりました。
@@ -370,6 +375,7 @@ AndroidアプリのUIコードレビューを実施し、大規模なリファ�
 コードレビューを実施し、リファクタリング（整理・軽量化）を行いました。
 <img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/BLETX_iOSandroid.png"></a>
 
+
 <u>Hub3</u>
  3.0-13-d4a9ce
 1.最新のESP32 SDK/Framework であるesp-idf v5.5.3へのアップデートを実施しました。 
@@ -424,6 +430,7 @@ iOS/AndroidアプリのUI微調整、クラッシュ及びバグの修正。コ�
 2.androidアプリ にも、3.7V LiNixCoyMnzO2 三元系リチウム電池の時間経過に伴う電圧変化グラフをサポートしました。
 <img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/delete_history_iOSandroidBiz.png"></a>
 
+
 <u>Sesame Bot 2</u>
  3.0-17-b33894
 1.
@@ -434,6 +441,7 @@ SesameBot2 の台本の名称と並び順が変更できるようになりまし
 ユーザーご自身でBluetooth TX Power（送信強度）を自由に調整可能になりました！電波干渉が多く、Bluetoothが不安定で途切れやすい環境に最適です。接続の不安定さを効果的に解消できることが実際の検証で実証されています。
 <img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/bot2scriptNameRankEditable_iOSandroid.png"></a>
 <img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/BLETX_iOSandroid.png"></a>
+
 
 <u>Sesame Face Pro</u>
  3.0-18-f5b193
