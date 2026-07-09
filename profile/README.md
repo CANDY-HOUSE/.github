@@ -12,7 +12,8 @@
   <a href="https://prtimes.jp/main/html/rd/p/000000022.000027777.html" target="_blank">LinkJapan</a>
   <a href="https://prtimes.jp/main/html/rd/p/000000022.000039435.html" target="_blank">Connected Design</a>
   <a href="https://rideblink.weebly.com/" target="_blank">bLink</a>
-  <a href="https://store.lixil.co.jp/deat411.html" target="_blank">LIXIL</a>
+  <a href="https://newsroom.lixil.com/ja/2026070802" target="_blank">LIXIL</a>
+  <!--<a href="https://digitalpr.jp/r/138760" target="_blank">LIXIL()</a>-->
   <a href="https://www.smartkaigisitsu.net/lp/smartlocks" target="_blank">スマート空間予約</a>
   <a href="https://x.com/RiiiverDev/status/1549287924960837635" target="_blank">CITIZEN</a>
   <a href="https://prtimes.jp/main/html/rd/p/000000002.000115098.html" target="_blank">ROOM KEY</a>
