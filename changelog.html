@@ -98,17 +98,16 @@
 <a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.152(676)-5c0fa14 @TestFlight</u></a>
 <a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(851)-aefe1687c @Github</u></a>
 1.
-【Android app】Gradle Pluginを最新バージョン（9.3.1）へアップデートしました。
+【Android app】Gradle Pluginを9.3.0 から 最新9.3.1へ、Target SDK（対象SDK）を 35 から 36 へ、最小 API レベルを 21 以上から 24 以上へアップデートしました。
 2.
-【Android app】Target SDK（対象SDK）を 35 から 36 へ、最小 API レベルを 21 以上から 24 以上へアップデートしました。
-3.
 【Android app】AWS SDK for Android を、最新の AWS Amplify for Android に移行しました。コード量を 50% 以上削減。保守・開発コストを 50% 以上削減。エレガントで保守性に優れ、オープンソースコミュニティとの開発や連携もよりスムーズに。
+3.
+【iOS app】依存ライブラリを再新に：async-http-client→1.36.0、swift-certificates→1.19.4、swift-crypto→4.5.1、swift-nio-http2→1.45.0、swift-system→1.7.5
 4.
 【iOS app】AWS SDK for iOS を、最新の AWS Amplify Swift に移行しました。
 以前は AWS SDK for iOS の MobileClient が Apple Watch 非対応だったため、XCodeプロジェクト内で SesameSDK を2つ（iPhone 用と Apple Watch 用）に分けて、やむ得ず workaround的な実装していました。さらに、.xcworkspace で管理するという面倒な構成になっていました。今回それらをすべて撤去しました。スッキリして、最高に気持ちいい！😌
 コード量を 50% 以上削減。保守・開発コストを 50% 以上削減。エレガントで保守性に優れ、オープンソースコミュニティとの開発や連携もよりスムーズに。
 <img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/iOSportedToAmplifySwift.png"></a>
-
 5.
 【Android app & iOS app】併せてコードレビューを実施し、リファクタリング（整理・軽量化）を行いました。
 
