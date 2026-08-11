@@ -93,6 +93,29 @@
 <p><br><br><br></p>
 <h2 id="changelog">Change Log 変更履歴</h2>
 <pre><code>
+<b>2026年8月11日(火)</b>
+<u>Sesame 5</u>
+ 3.0-5-09ca44
+<u>Sesame 5 Pro</u>
+ 3.0-7-09ca44
+<u>Sesame 5 北米北欧版</u>
+ 3.0-16-09ca44
+1.
+Open Sensor 2のスイッチ状態がONかOFFかを問わず、ドアが閉められたことを検知しましたら、セサミ5シリーズのタイマー式オートロックのタイマーのカウントダウンを再開するようにロジックを補完しました。
+Open Sensor 1にスイッチが無かったため、ドアが閉められたことを検知しましたら、必ずOpen Sensor 1によって施錠されるので、このようなロジックが考慮漏れとなっていました。
+
+</code></pre>
+<hr>
+<pre><code>
+<b>2026年8月10日(月)</b>
+<u>Open Sensor 2</u>
+ 3.0-24-f52a5b
+1.Open Sensor 2 のスイッチについて、樹脂成型の精度やバリの影響でスライダーが最後まで切り替わらない場合があり、その際ソフト側は ON でも OFF でもない中間状態を取得してしまいます。
+このケースでは、直前に確定していた状態（ON または OFF）の反対の状態として扱うようロジックを追加しました。
+
+</code></pre>
+<hr>
+<pre><code>
 <b>2026年8月9日(日)</b>
 <a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.152(676)-5c0fa14 @TestFlight</u></a>
 <a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(852)-b70d105c5 @Github</u></a>
