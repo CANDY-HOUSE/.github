@@ -98,14 +98,14 @@
 <a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(867)-f7958acfe @Github</u></a>
 <u>biz.candyhouse.co</u>
 1.
-iOSアプリ、Androidアプリ、biz.candyhouse.coにおけるCANDY HOUSEデバイスの並び替えロジックを統一しました。
-併せて、デバイスの並び順を変更した際、並び順が変わったデバイスのみを更新・再読み込みし、リスト全体は更新しないように最適化しました。
-このリファクタリングにより、コード量とバグを大幅に削減するとともに、デバイスの並び替え処理の効率性と安定性を向上しました。
-
-2.
 多くのユーザー様より「セサミ鍵のQRコードが永続的に有効な状態だとセキュリティ面で不安」とのご意見を頂いた為、セサミ鍵のQRコードを暗号化し、有効期限を10分間に限定する仕様へと変更いたしました。
 ユーザー様ご自身で「暗号化された10分間のみ有効なセサミ鍵のQRコード」を表示するか、それとも「従来の暗号化されていない無期限のセサミ鍵のQRコード」を表示するかをご選択頂けるようになりました。
 スマホアプリ側のデコード処理を削除し、ロジックを全てサーバー側へ移行・集約することで、今後のスマホアプリの保守コストを削減できました。
+
+2.
+iOSアプリ、Androidアプリ、biz.candyhouse.coにおけるCANDY HOUSEデバイスの並び替えロジックを統一しました。
+併せて、デバイスの並び順を変更した際、並び順が変わったデバイスのみを更新・再読み込みし、リスト全体は更新しないように最適化しました。
+このリファクタリングにより、コード量とバグを大幅に削減するとともに、デバイスの並び替え処理の効率性と安定性を向上しました。
 
 3.
 【android app】自動デプロイのビルド対象を「APK＋AAB」から「AABのみ」に集約し、Play Console 経由で Google 署名済み APK を取得・配布するフローに変更しました。
@@ -116,10 +116,11 @@ iOSアプリ、Androidアプリ、biz.candyhouse.coにおけるCANDY HOUSEデバ
 
 5.
 【iOS app】
+依存ライブラリを最新に：IOS-DFU-Library→4.17.0、swift-log→1.15.0、swift-system→1.8.0、ZIPFoundation→0.9.20
 
-5.
+6.
 【iOS & android app】
-
+未ログインユーザーとログイン済みユーザーで分かれていた2つの AWS Cognito Identity Pool を1つに統合し、クラウドを含めて、システム全体のentropyが下がり、構成がすっきり整理されました。
 
 </code></pre>
 <hr>
@@ -211,7 +212,7 @@ Open Sensor 2 のスイッチについて、樹脂成型の精度やバリの影
 2.
 【Android app】AWS SDK for Android を、最新の AWS Amplify for Android に移行しました。コード量を 50% 以上削減。保守・開発コストを 50% 以上削減。エレガントで保守性に優れ、オープンソースコミュニティとの開発や連携もよりスムーズに。
 3.
-【iOS app】依存ライブラリを再新に：async-http-client→1.36.0、swift-certificates→1.19.4、swift-crypto→4.5.1、swift-nio-http2→1.45.0、swift-system→1.7.5
+【iOS app】依存ライブラリを最新に：async-http-client→1.36.0、swift-certificates→1.19.4、swift-crypto→4.5.1、swift-nio-http2→1.45.0、swift-system→1.7.5
 4.
 【iOS app】AWS SDK for iOS を、最新の AWS Amplify Swift に移行しました。
 以前は AWS SDK for iOS の MobileClient が Apple Watch 非対応だったため、XCodeプロジェクト内で SesameSDK を2つ（iPhone 用と Apple Watch 用）に分けて、やむ得ず workaround的な実装していました。さらに、.xcworkspace で管理するという面倒な構成になっていました。今回それらをすべて撤去しました。スッキリして、最高に気持ちいい！😌
