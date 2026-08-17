@@ -93,6 +93,37 @@
 <p><br><br><br></p>
 <h2 id="changelog">Change Log 変更履歴</h2>
 <pre><code>
+<b>2026年8月18日(火)</b>
+<a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.153(685)-c6bf27d @TestFlight</u></a>
+<a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(867)-f7958acfe @Github</u></a>
+<u>biz.candyhouse.co</u>
+1.
+iOSアプリ、Androidアプリ、biz.candyhouse.coにおけるCANDY HOUSEデバイスの並び替えロジックを統一しました。
+併せて、デバイスの並び順を変更した際、並び順が変わったデバイスのみを更新・再読み込みし、リスト全体は更新しないように最適化しました。
+このリファクタリングにより、コード量とバグを大幅に削減するとともに、デバイスの並び替え処理の効率性と安定性を向上しました。
+
+2.
+多くのユーザー様より「セサミ鍵のQRコードが永続的に有効な状態だとセキュリティ面で不安」とのご意見を頂いた為、セサミ鍵のQRコードを暗号化し、有効期限を10分間に限定する仕様へと変更いたしました。
+ユーザー様ご自身で「暗号化された10分間のみ有効なセサミ鍵のQRコード」を表示するか、それとも「従来の暗号化されていない無期限のセサミ鍵のQRコード」を表示するかをご選択頂けるようになりました。
+スマホアプリ側のデコード処理を削除し、ロジックを全てサーバー側へ移行・集約することで、今後のスマホアプリの保守コストを削減できました。
+
+3.
+【android app】自動デプロイのビルド対象を「APK＋AAB」から「AABのみ」に集約し、Play Console 経由で Google 署名済み APK を取得・配布するフローに変更しました。
+これにより署名が統一され、Google Play版と社内最新版APKの間で、アプリを削除せずに相互で上書き更新が可能になりました（APK ユーザーはストアから更新でき、ストア版ユーザーは APK で最新を試せます）。Google Play審査の待ち時間に左右されず、APK配布で開発スピードを最大化。
+
+4.
+【android app】クラッシュの修正。
+
+5.
+【iOS app】
+
+5.
+【iOS & android app】
+
+
+</code></pre>
+<hr>
+<pre><code> 
 <b>2026年8月13日(水)</b>
 <u>Sesame 6 Proシリーズ</u>
  3.0-21-956bb2
