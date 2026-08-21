@@ -93,6 +93,40 @@
 <p><br><br><br></p>
 <h2 id="changelog">Change Log 変更履歴</h2>
 <pre><code>
+<b>2026年8月22日(土)</b>
+<a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.154(693)-e507f64 @TestFlight</u></a>
+<a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(880)-e07b0f11b @Github</u></a>
+1.
+【iOS & android app】
+「自分」ページ及びログインページを全てbiz.candyhouse.coのHTML5に切り替えました。Goodbye .xib and storyboard, goodbye .xml.👋 これにより、アプリの保守コストを大幅に削減できました。併せてリファクタリングを実施し、不要なコードを削除しました。
+<img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/me_login_HTML5.svg">
+
+2.
+【iOS & android app】
+AWS IoT Core の「1コネクションあたりのサブスクリプション数上限（≤50）」の制約により、1アカウントに多数のデバイスが登録されている場合、ネットワーク経由での施錠・解錠、及びオンライン／オフラインなどの状態の反映に遅延や不正確さが発生していました。
+従来は表面化していませんでしたが、AWS Amplify への移行後にこの問題が顕在化しました。
+対策として、サブスクリプション 50 件ごとにコネクションを 1 本追加する方式に変更いたしました。
+
+3.
+【iOS app】
+AWS Amplify 移行後に発生していた、WiFiモジュール2 配下の セサミ3 / セサミ4 のネット上の状態表示の不具合を修正しました。
+
+4.
+【iOS app】
+AWS Amplify へのシステム移行後、iOSショートカットを用いた遠隔操作（インターネット経由での操作）が機能しなくなっていた問題を修正いたしました。
+
+5.
+【Android app】
+AWS Amplify 移行後に発生していた、WiFiモジュール2 配下の セサミ3 / セサミ4 / セサミBot1 / セサミサイクル1 のネット上の状態表示の不具合を修正しました。
+
+6.
+【Android app】
+Gradleを最新バージョン9.6.1 → 9.7.0へアップデートしました。
+
+
+</code></pre>
+<hr>
+<pre><code> 
 <b>2026年8月18日(火)</b>
 <a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.153(685)-c6bf27d @TestFlight</u></a>
 <a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(867)-f7958acfe @Github</u></a>
