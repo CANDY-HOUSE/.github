@@ -93,6 +93,36 @@
 <p><br><br><br></p>
 <h2 id="changelog">Change Log 変更履歴</h2>
 <pre><code>
+<b>2026年8月29日(土)</b>
+<a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.155(706)-3f6d527 @TestFlight</u></a>
+<a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(894)-a83dd46b8 @Github</u></a>
+1.
+【iOS & android app】
+施錠と解錠を判定する境界が調整できるようになりました。
+また、角度の検知頻度を調整できるようになりました。特に、複数回転タイプのサムターンに最適です。
+<img src="https://cdn.shopify.com/s/files/1/0016/1870/6495/files/boundary_and_angleDetectingFrequency.svg">
+
+2.
+【iOS & android app】
+引き戸用のスライドモードに変換する過程において、スマホアプリ側のローカルデータベース並びにサーバー側データベースの同期更新処理が漏れていたことを修正いたしました。
+この不具合により、Bluetooth未接続時には、変換前の回転モードのまま表示されてしまう問題が発生しておりました。
+
+3.
+【iOS & android app】
+HTML5化されたログイン画面において不要なコードを削除し、iOSで発生する可能性があったログイン失敗の問題を修正しました。
+
+4.
+【Android app】
+リファクタリング： Balloonライブラリを削除し、ネイティブのPopupWindowを使用してポップアップメニューを実装しました。
+併せて、その他の箇所にある不要なコードも削除しました。
+
+5.
+【Android app】
+Gradleを9.7.0 → 最新9.7.1へ、Gradle Pluginを9.3.1 → 最新9.3.2へアップデートしました。
+
+</code></pre>
+<hr>
+<pre><code> 
 <b>2026年8月26日(水)</b>
 <u>Sesame Face Pro / Sesame Face 2 Pro</u>
  3.0-18-25837b
