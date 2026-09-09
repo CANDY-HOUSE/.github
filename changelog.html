@@ -93,6 +93,50 @@
 <p><br><br><br></p>
 <h2 id="changelog">Change Log 変更履歴</h2>
 <pre><code> 
+<b>2026年9月9日(水)</b>
+<u>Sesame Bike 2</u>
+ 3.0-6-3bfc1c
+<u>Remote</u>
+ 3.0-14-3bfc1c
+<u>Remote nano</u>
+ 3.0-15-3bfc1c
+<u>Open Sensor 2</u>
+ 3.0-24-3bfc1c
+<u>Open Sensor 1</u>
+ 3.0-8-3bfc1c
+1.
+StackOverflowを修正しました。このStackOverflowは、Bluetooth接続の不安定化、再起動、操作履歴の文字化けを引き起こす可能性がございました。
+
+
+
+<u>Sesame Face Pro / Sesame Face 2 Pro</u>
+ 3.0-18-e877d5
+<u>Sesame Face</u>
+ 3.0-19-e877d5
+<u>Sesame Face Pro AI時代版</u>
+ 3.0-22-e877d5
+<u>Sesame Face AI時代版</u>
+ 3.0-23-e877d5
+<u>Sesame Touch Pro / Sesame Touch 2 Pro</u>
+ 3.0-9-e877d5
+<u>Sesame Touch / Sesame Touch 2</u>
+ 3.0-10-e877d5
+1. 
+ごく稀にセサミが意図せず解錠されてしまう問題を修正しました。
+   ・施解錠コマンドの応答受信後、再送待ちコマンドを即座にクリアするよう変更
+   ・再接続時に解錠コマンドが再送されないよう修正
+2. 
+操作履歴がすべて「0」となってしまう不具合を修正しました。
+3. 
+操作履歴の文字化けを修正しました。
+4. 
+コードのリファクタリングを行いました。
+
+
+
+</code></pre>
+<hr>
+<pre><code> 
 <b>2026年9月5日(土)</b>
 <a href="https://testflight.apple.com/join/Rok4GOFD/" target="_blank"><u>iOS app 3.0.156(710)-3a8f01e @TestFlight</u></a>
 <a href="https://github.com/CANDY-HOUSE/SesameSDK_Android_with_DemoApp/releases/latest/download/Sesame_android_release.apk"><u>Android app 3.0.266(899)-968d29249 @Github</u></a>
@@ -137,7 +181,7 @@ Gradle Pluginを9.3.2 → 最新9.4.0へアップデートしました。
 <u>Sesame Bot 2 / Sesame Bot 3</u>
  3.0-17-3bfc1c
 1.
-スタックオーバーフローを修正しました。このスタックオーバーフローは、Bluetooth接続の不安定化、再起動、操作履歴の文字化けを引き起こす可能性がございました。
+StackOverflowを修正しました。このStackOverflowは、Bluetooth接続の不安定化、再起動、操作履歴の文字化けを引き起こす可能性がございました。
 2.
 Google SkillsでSesame Bot 2 / Sesame Bot 3との連携はできるものの、Matter経由のGoogle Home操作ではSesame Bot 2 / Sesame Bot 3が反応しない問題を修正しました。
 
@@ -188,7 +232,7 @@ Gradleを9.7.0 → 最新9.7.1へ、Gradle Pluginを9.3.1 → 最新9.3.2へア�
 <u>Sesame Touch / Sesame Touch 2</u>
  3.0-10-25837b
 1.
-複数のスタックオーバーフローを修正しました。これらのスタックオーバーフローは、Bluetooth接続の不安定化、再起動、NFCカードデータの破損を引き起こす可能性がありました。
+複数のStackOverflowを修正しました。これらのStackOverflowは、Bluetooth接続の不安定化、再起動、NFCカードデータの破損を引き起こす可能性がありました。
 2.
 SesameBotと連携している場合に、Sesameを解錠してしまう問題を修正しました。
 3.
