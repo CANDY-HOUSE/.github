@@ -100,12 +100,12 @@
 Hub3の接続安定性を改善しました。
 稀にHub3で、Wi-Fi再接続後にAWS IoTサーバーへ再接続できなくなり、オフラインになる・つながってもすぐ切断されるという問題を修正しました。
 本アップデート後は、再接続時も安定してつながるようになります。
-<span style="color: #515151;"><q>
+<span style="color: #515151;"><i>
 技術的な原因の詳細：
 AWS IoTのclientIDをstatic宣言に変更し、再接続時にclientIDが破損する問題を修正しました。
 aws_iot_task() 内の hub3_uuid はスタック上の配列で、connectParams.pClientID にはそのポインタのみが保存されていました。関数の終了後、当該タスクは vTaskDelete で削除されますが、SDKの自動再接続（aws_iot_mqtt_attempt_reconnect）がこのポインタを再度読み込むため、すでに無効なデータを参照していました。
 実際に本番環境のログでは、clientIDが文字化け・オールゼロになっているケースが多数確認されており、オールゼロのclientIDを持つ複数台のデバイスが互いの接続を切断し合い、client_id_throttled が発生していました。
-</q></span>
+</i></span>
 
 <u>Sesame Bot 2 / Sesame Bot 3</u>
  3.0-17-4b6315
