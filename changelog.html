@@ -2977,20 +2977,37 @@ VivoKey Japan合同会社様よりご指摘をいただき、7バイトのNFCタ
 /* 完了済み To Do：薄すぎて読めなかった色を少し濃く */
 .chlog span[style*="e3e3e3"]{color:#a3a8ae!important}
 
-/* 日付メニュー（下のスクリプトが自動生成。新しい日付を追加しても編集不要） */
-.chlog-nav{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:8px;margin:-8px 0 8px;padding:8px 0;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid #e3e5e8}
-.chlog-nav select{flex:1 1 auto;min-width:0;max-width:300px;height:40px;margin:0;padding:0 34px 0 12px;font:inherit;font-size:16px;font-weight:600;color:#1f2328;border:1px solid #d0d4d9;border-radius:8px;cursor:pointer;-webkit-appearance:none;appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231f2328' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center}
-.chlog .chlog-nav button{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:40px;height:40px;margin:0;padding:0;border-radius:8px;font-size:16px;line-height:1}
-.chlog .chlog-nav button:disabled{opacity:.35;cursor:default;background:#fff}
-.chlog-nav select:focus-visible,.chlog .chlog-nav button:focus-visible{outline:2px solid #0969da;outline-offset:1px}
+/* 日付メニュー（下のスクリプトが自動生成。新しい日付を追加しても編集不要）
+   広い画面：左側に日付リスト ／ 狭い画面（スマホ）：上部にプルダウン */
+.chlog-nav{position:sticky;top:0;z-index:5}
+.chlog-bar{display:flex;align-items:center;gap:8px;margin:-8px 0 8px;padding:8px 0;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid #e3e5e8}
+.chlog-bar select{flex:1 1 auto;min-width:0;height:44px;margin:0;padding:0 34px 0 12px;font:inherit;font-size:16px;font-weight:600;color:#1f2328;border:1px solid #d0d4d9;border-radius:8px;cursor:pointer;-webkit-appearance:none;appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231f2328' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center}
+.chlog .chlog-bar button{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:0;padding:0;border-radius:8px;font-size:16px;line-height:1}
+.chlog .chlog-bar button:disabled{opacity:.35;cursor:default;background:#fff}
+.chlog-list{display:none}
+.chlog-nav :focus-visible{outline:2px solid #0969da;outline-offset:1px}
+
+@media (min-width:1000px){
+  /* 本文の左にメニュー用の列を作る */
+  .chlog{max-width:none;width:min(1000px,calc(100vw - 48px));position:relative;left:50%;margin-left:calc(min(1000px,100vw - 48px) / -2);padding-left:220px;box-sizing:border-box}
+  .chlog-nav{height:0}
+  .chlog-bar{display:none}
+  .chlog-list{display:block;position:absolute;top:0;left:-220px;width:188px;max-height:calc(100vh - var(--chlog-top,0px) - 24px);overflow-y:auto;overscroll-behavior:contain;padding:2px 6px 8px 0;box-sizing:border-box;font-size:13.5px;line-height:1.5}
+  .chlog-list summary{display:flex;align-items:center;justify-content:space-between;padding:5px 8px;border-radius:6px;font-weight:700;color:#1f2328;cursor:pointer;list-style:none}
+  .chlog-list summary::-webkit-details-marker{display:none}
+  .chlog-list summary:hover{background:#f2f3f5}
+  .chlog-list summary span{font-weight:500;font-size:12px;color:#8b9198}
+  .chlog-list details[open]>summary{margin-bottom:2px}
+  .chlog-list a{display:block;margin:0 0 1px 8px;padding:3px 10px;border-left:2px solid #e3e5e8;color:#59636e;text-decoration:none;background:none!important;transition:none}
+  .chlog-list a:hover{color:#1f2328;border-left-color:#8b9198}
+  .chlog-list a.is-now{color:#1f2328;font-weight:700;border-left-color:#1f2328;background:#f2f3f5!important;border-radius:0 6px 6px 0}
+}
 
 /* スマホ */
 @media (max-width:640px){
   .chlog{font-size:14.5px}
   .chlog h2{font-size:22px}
   .chlog code>b:first-child{font-size:18px}
-  .chlog-nav select{max-width:none;height:44px}
-  .chlog .chlog-nav button{width:44px;height:44px}
 }
 </style>
 
@@ -3002,41 +3019,49 @@ VivoKey Japan合同会社様よりご指摘をいただき、7バイトのNFCタ
   var re=/^(\d{4})年(\d{1,2})月(\d{1,2})日/,items=[],used={},i;
   var bs=root.querySelectorAll('code>b:first-child');
   function pad(s){return s.length<2?'0'+s:s}
+  function make(tag,cls){var e=document.createElement(tag);if(cls)e.className=cls;return e}
   for(i=0;i<bs.length;i++){
     var label=bs[i].textContent.replace(/\s+/g,''),m=re.exec(label);
     if(!m)continue;
     var id='d'+m[1]+'-'+pad(m[2])+'-'+pad(m[3]);
     if(used[id]){used[id]++;id+='-'+used[id]}else{used[id]=1}
     bs[i].id=id;
-    items.push({id:id,el:bs[i],label:label,group:m[1]+'年'+m[2]+'月'});
+    items.push({id:id,el:bs[i],label:label,group:m[1]+'年'+m[2]+'月',short:label.replace(/^\d{4}年/,'')});
   }
   if(!items.length)return;
 
-  var nav=document.createElement('nav'),sel=document.createElement('select');
-  nav.className='chlog-nav';
+  /* スマホ用：プルダウン＋前後ボタン ／ PC用：左側の日付リスト（月ごとに開閉） */
+  var nav=make('nav','chlog-nav'),bar=make('div','chlog-bar'),list=make('div','chlog-list'),sel=make('select');
   nav.setAttribute('aria-label','日付メニュー');
   sel.setAttribute('aria-label','日付を選んで移動');
-  var group=null,name='';
+  var og=null,box=null,name='';
+  function pick(n){return function(e){e.preventDefault();go(n)}}
   for(i=0;i<items.length;i++){
     if(items[i].group!==name){
       name=items[i].group;
-      group=document.createElement('optgroup');
-      group.label=name;
-      sel.appendChild(group);
+      og=make('optgroup');og.label=name;sel.appendChild(og);
+      box=make('details');
+      var sum=make('summary');
+      sum.appendChild(document.createTextNode(name));
+      sum.appendChild(make('span'));
+      box.appendChild(sum);list.appendChild(box);
     }
-    var o=document.createElement('option');
-    o.value=i;o.textContent=items[i].label;
-    group.appendChild(o);
+    var o=make('option');o.value=i;o.textContent=items[i].label;og.appendChild(o);
+    var a=make('a');a.href='#'+items[i].id;a.textContent=items[i].short;a.onclick=pick(i);
+    box.appendChild(a);
+    box.firstChild.lastChild.textContent=box.children.length-1;
+    items[i].link=a;items[i].box=box;
   }
   function btn(text,title,step){
-    var b=document.createElement('button');
+    var b=make('button');
     b.type='button';b.textContent=text;b.title=title;
     b.setAttribute('aria-label',title);
     b.onclick=function(){go(current()+step)};
     return b;
   }
   var up=btn('↑','新しい日付へ',-1),down=btn('↓','古い日付へ',1);
-  nav.appendChild(sel);nav.appendChild(up);nav.appendChild(down);
+  bar.appendChild(sel);bar.appendChild(up);bar.appendChild(down);
+  nav.appendChild(bar);nav.appendChild(list);
   head.parentNode.insertBefore(nav,head.nextSibling);
 
   /* 画面上部に固定されているサイトのヘッダーの高さ（メニューをその真下に張り付ける） */
@@ -3050,27 +3075,47 @@ VivoKey Japan合同会社様よりご指摘をいただき、7バイトのNFCタ
     }
     return Math.round(top);
   }
-  function edge(){return offset()+nav.offsetHeight}
+  function wide(){return getComputedStyle(bar).display==='none'}
+  function edge(){return offset()+(wide()?8:nav.offsetHeight)}
   function jump(n){window.scrollTo(0,window.pageYOffset+items[n].el.getBoundingClientRect().top-edge()-12)}
-  function line(){return edge()+24}
   function current(){
-    var y=line(),lo=0,hi=items.length-1,ans=0;
+    var y=edge()+24,lo=0,hi=items.length-1,ans=0;
     while(lo<=hi){
       var mid=(lo+hi)>>1;
       if(items[mid].el.getBoundingClientRect().top<=y){ans=mid;lo=mid+1}else{hi=mid-1}
     }
     return ans;
   }
+  var now=-1,auto=null;
   function sync(){
-    nav.style.top=offset()+'px';
+    var w=wide(),top=offset()+(w?16:0);
+    nav.style.top=top+'px';
+    nav.style.setProperty('--chlog-top',top+'px');
     var c=current();
     sel.selectedIndex=c;
     up.disabled=c<=0;down.disabled=c>=items.length-1;
+    if(c!==now){
+      if(now>=0)items[now].link.className='';
+      items[c].link.className='is-now';
+      /* いま読んでいる月だけ自動で開く */
+      if(items[c].box!==auto){
+        if(auto)auto.open=false;
+        auto=items[c].box;auto.open=true;
+      }
+      now=c;
+    }
+    if(w){
+      /* リスト内で現在の日付が見えるようにスクロール */
+      var l=list.getBoundingClientRect(),r=items[c].link.getBoundingClientRect();
+      var bt=items[c].box.getBoundingClientRect().top;
+      if(r.top<l.top+30)list.scrollTop-=l.top-(r.bottom-bt<l.height-16?bt:r.top-30);
+      else if(r.bottom>l.bottom-8)list.scrollTop+=r.bottom-l.bottom+8;
+    }
   }
   function go(n){
     if(n<0||n>=items.length)return;
     jump(n);
-    try{history.replaceState(null,'','#'+items[n].id)}catch(e){}
+    try{history.replaceState(null,'',location.href.split('#')[0]+'#'+items[n].id)}catch(e){}
     sync();
   }
   sel.onchange=function(){go(+sel.value)};
