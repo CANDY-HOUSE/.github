@@ -1,0 +1,31 @@
+name: Publish changelog to Shopify
+
+# changelog.html を main に push すると、Shopify の /pages/changelog に自動反映する
+on:
+  push:
+    branches: [main]
+    paths:
+      - changelog.html
+      - .github/scripts/publish_changelog.py
+      - .github/workflows/publish-changelog.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-changelog
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish changelog.html
+        env:
+          SHOPIFY_ACCESS_TOKEN: ${{ secrets.SHOPIFY_ACCESS_TOKEN }}
+          SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
+          SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
+        run: python3 .github/scripts/publish_changelog.py
